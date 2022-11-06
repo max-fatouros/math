@@ -34,9 +34,10 @@ def make(function_list, frame_dir="frames",
             for xs in np.array_split(x, computational_divisions):
                 for ys in np.array_split(y, computational_divisions):
                     X, Y = np.meshgrid(xs, ys, sparse=True)
-                    Z = amplitude * np.array(
+                    Z = amplitude * np.sum(np.array(
                         [function(np.hypot(X - a, Y - b) - t) for function, a, b in function_list]
-                    )[0]
+                    ), axis=0)
+
 
                     ax.plot_surface(X, Y, Z, cmap=plt.cm.YlGnBu_r)
 
