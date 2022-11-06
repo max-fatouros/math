@@ -1,0 +1,8 @@
+.idea/
+
+
+# Superposition files
+superposition/frames/*
+*pycache*
+wave.gif
+
